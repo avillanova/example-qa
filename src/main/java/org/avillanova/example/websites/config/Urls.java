@@ -1,7 +1,7 @@
 package org.avillanova.example.websites.config;
 
 public enum Urls {
-    LOGIN_URL("https://trello.com/login");
+    LOGIN_URL("https://id.atlassian.com/login");
 
     private String url;
 
