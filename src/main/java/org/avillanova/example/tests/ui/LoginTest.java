@@ -8,6 +8,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.avillanova.example.websites.config.Hook.*;
+import static org.avillanova.example.websites.enums.Users.LOGIN_INVALIDO;
+import static org.avillanova.example.websites.enums.Users.LOGIN_VALIDO;
 
 public class LoginTest {
 
@@ -18,7 +20,7 @@ public class LoginTest {
 
     @After
     public void after(){
-        //quit();
+        quit();
     }
 
     @Test
@@ -26,7 +28,7 @@ public class LoginTest {
         LoginPage page = new LoginPage();
 
         String mensagem = page.access()
-                .loginInvalido("teste@masasas.com")
+                .loginInvalido(LOGIN_INVALIDO.getUser())
                 .pegarTextLegal();
 
         Assert.assertEquals("Mensagem de texto legal nao encontrada",
@@ -39,10 +41,10 @@ public class LoginTest {
        LoginPage page = new LoginPage();
 
         DashboardPage dashPage = page.access()
-                .loginValido("teste.teste@mailinator.com", "Teste1234");
+                .loginValido(LOGIN_VALIDO.getUser(), LOGIN_VALIDO.getPassword());
 
         Assert.assertEquals("Mensagem 'Seus Produtos' nao encontrada",
-                "Seus produtos",
+                "url dashboard",
                 dashPage.getDashUrl());
     }
 }

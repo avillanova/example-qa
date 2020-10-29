@@ -13,6 +13,7 @@ import static org.avillanova.example.websites.config.Urls.LOGIN_URL;
 public class LoginPage {
     @FindBy(how = How.ID, using = "username")
     WebElement userElement;
+
     @FindBy(how = How.ID, using = "password")
     WebElement passElement;
 
